@@ -1,8 +1,8 @@
-let pointsHomeome = 0
+let pointsHome = 0
 let pointsAway = 0
 
-let hScorer = document.getElementById("hscore-el")
-let gScorer = document.getElementById("gscore-el")
+let hScorer = document.getElementById("homescore-el")
+let aScorer = document.getElementById("awayscore-el")
 
 let penaltyHomeBtn = document.getElementById("penaltyHome-btn")
 let dropHomeBtn = document.getElementById("dropHome-btn")
@@ -77,13 +77,13 @@ function enableButtons2Away() {
     conversionAwayBtn.disabled = false
 }
 
-function newAwayame() {
+function newGame() {
     pointsHome = 0
     pointsAway = 0
     hScorer.textContent = pointsHome
-    gScorer.textContent = pointsAway
+    aScorer.textContent = pointsAway
     hScorer.style.textDecoration = "none"
-    gScorer.style.textDecoration = "none"
+    aScorer.style.textDecoration = "none"
     enableButtons1Home()
     disableButtons2Home()
     enableButtons1Away()
@@ -93,15 +93,15 @@ function newAwayame() {
 function winning() {
     if (pointsHome > pointsAway) {
         hScorer.style.textDecoration = "underline"
-        gScorer.style.textDecoration = "none"
+        aScorer.style.textDecoration = "none"
     }
     else if (pointsHome < pointsAway) {
-        gScorer.style.textDecoration = "underline"
+        aScorer.style.textDecoration = "underline"
         hScorer.style.textDecoration = "none"
     }
     else {
         hScorer.style.textDecoration = "none"
-        gScorer.style.textDecoration = "none"
+        aScorer.style.textDecoration = "none"
     }
 }
 
@@ -147,19 +147,19 @@ function conversionHome() {
 
 function penaltyAway() {
     pointsAway += 3
-    gScorer.textContent = pointsAway
+    aScorer.textContent = pointsAway
     winning()
 }
 
 function dropAway() {
     pointsAway += 3
-    gScorer.textContent = pointsAway
+    aScorer.textContent = pointsAway
     winning()
 }
 
 function tryAway() {
     pointsAway += 5
-    gScorer.textContent = pointsAway
+    aScorer.textContent = pointsAway
     disableButtons1Away()
     enableButtons2Away()
     disableAllHome()
@@ -177,7 +177,7 @@ function missedAway() {
 
 function conversionAway() {
     pointsAway += 2
-    gScorer.textContent = pointsAway
+    aScorer.textContent = pointsAway
     enableButtons1Away()
     disableButtons2Away()
     enableButtons1Home()
