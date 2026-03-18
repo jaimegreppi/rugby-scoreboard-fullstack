@@ -1,101 +1,101 @@
-let pointsH = 0
-let pointsG = 0
+let pointsHomeome = 0
+let pointsAway = 0
 
 let hScorer = document.getElementById("hscore-el")
 let gScorer = document.getElementById("gscore-el")
 
-let penaltyHBtn = document.getElementById("penaltyH-btn")
-let dropHBtn = document.getElementById("dropH-btn")
-let tryHBtn = document.getElementById("tryH-btn")
-let missedHBtn = document.getElementById("missedH-btn")
-let conversionHBtn = document.getElementById("conversionH-btn")
+let penaltyHomeBtn = document.getElementById("penaltyHome-btn")
+let dropHomeBtn = document.getElementById("dropHome-btn")
+let tryHomeBtn = document.getElementById("tryHome-btn")
+let missedHomeBtn = document.getElementById("missedHome-btn")
+let conversionHomeBtn = document.getElementById("conversionHome-btn")
 
-let penaltyGBtn = document.getElementById("penaltyG-btn")
-let dropGBtn = document.getElementById("dropG-btn")
-let tryGBtn = document.getElementById("tryG-btn")
-let missedGBtn = document.getElementById("missedG-btn")
-let conversionGBtn = document.getElementById("conversionG-btn")
+let penaltyAwayBtn = document.getElementById("penaltyAway-btn")
+let dropAwayBtn = document.getElementById("dropAway-btn")
+let tryAwayBtn = document.getElementById("tryAway-btn")
+let missedAwayBtn = document.getElementById("missedAway-btn")
+let conversionAwayBtn = document.getElementById("conversionAway-btn")
 
 let newGameBtn = document.getElementById("newgame-btn")
 
-function disableButtons1H() {
-    penaltyHBtn.disabled = true
-    dropHBtn.disabled = true
-    tryHBtn.disabled = true
+function disableButtons1Home() {
+    penaltyHomeBtn.disabled = true
+    dropHomeBtn.disabled = true
+    tryHomeBtn.disabled = true
 }
 
-function disableButtons2H() {
-    missedHBtn.disabled = true
-    conversionHBtn.disabled = true
+function disableButtons2Home() {
+    missedHomeBtn.disabled = true
+    conversionHomeBtn.disabled = true
 }
 
-function disableAllH() {
-    disableButtons1H()
-    disableButtons2H()
+function disableAllHome() {
+    disableButtons1Home()
+    disableButtons2Home()
 }
 
-function disableButtons1G() {
-    penaltyGBtn.disabled = true
-    dropGBtn.disabled = true
-    tryGBtn.disabled = true
+function disableButtons1Away() {
+    penaltyAwayBtn.disabled = true
+    dropAwayBtn.disabled = true
+    tryAwayBtn.disabled = true
 }
 
-function disableButtons2G() {
-    missedGBtn.disabled = true
-    conversionGBtn.disabled = true
+function disableButtons2Away() {
+    missedAwayBtn.disabled = true
+    conversionAwayBtn.disabled = true
 }
 
-function disableAllG() {
-    disableButtons1G()
-    disableButtons2G()
+function disableAllAway() {
+    disableButtons1Away()
+    disableButtons2Away()
 }
 
 function disableAll() {
-    disableAllH()
-    disableAllG()
+    disableAllHome()
+    disableAllAway()
 }
 
-function enableButtons1H() {
-    penaltyHBtn.disabled = false
-    dropHBtn.disabled = false
-    tryHBtn.disabled = false
+function enableButtons1Home() {
+    penaltyHomeBtn.disabled = false
+    dropHomeBtn.disabled = false
+    tryHomeBtn.disabled = false
 }
 
-function enableButtons2H() {
-    missedHBtn.disabled = false
-    conversionHBtn.disabled = false
+function enableButtons2Home() {
+    missedHomeBtn.disabled = false
+    conversionHomeBtn.disabled = false
 }
 
-function enableButtons1G() {
-    penaltyGBtn.disabled = false
-    dropGBtn.disabled = false
-    tryGBtn.disabled = false
+function enableButtons1Away() {
+    penaltyAwayBtn.disabled = false
+    dropAwayBtn.disabled = false
+    tryAwayBtn.disabled = false
 }
 
-function enableButtons2G() {
-    missedGBtn.disabled = false
-    conversionGBtn.disabled = false
+function enableButtons2Away() {
+    missedAwayBtn.disabled = false
+    conversionAwayBtn.disabled = false
 }
 
-function newGame() {
-    pointsH = 0
-    pointsG = 0
-    hScorer.textContent = pointsH
-    gScorer.textContent = pointsG
+function newAwayame() {
+    pointsHome = 0
+    pointsAway = 0
+    hScorer.textContent = pointsHome
+    gScorer.textContent = pointsAway
     hScorer.style.textDecoration = "none"
     gScorer.style.textDecoration = "none"
-    enableButtons1H()
-    disableButtons2H()
-    enableButtons1G()
-    disableButtons2G()
+    enableButtons1Home()
+    disableButtons2Home()
+    enableButtons1Away()
+    disableButtons2Away()
 }
 
 function winning() {
-    if (pointsH > pointsG) {
+    if (pointsHome > pointsAway) {
         hScorer.style.textDecoration = "underline"
         gScorer.style.textDecoration = "none"
     }
-    else if (pointsH < pointsG) {
+    else if (pointsHome < pointsAway) {
         gScorer.style.textDecoration = "underline"
         hScorer.style.textDecoration = "none"
     }
@@ -105,82 +105,82 @@ function winning() {
     }
 }
 
-function penaltyH() {
-    pointsH += 3
-    hScorer.textContent = pointsH
+function penaltyHome() {
+    pointsHome += 3
+    hScorer.textContent = pointsHome
     winning()
 }
 
-function dropH() {
-    pointsH += 3
-    hScorer.textContent = pointsH
+function dropHome() {
+    pointsHome += 3
+    hScorer.textContent = pointsHome
     winning()
 }
 
-function tryH() {
-    pointsH += 5
-    hScorer.textContent = pointsH
-    disableButtons1H()
-    enableButtons2H()
-    disableAllG()
-    winning()
-    newGameBtn.disabled = true
-}
-
-function missedH() {
-    enableButtons1H()
-    disableButtons2H()
-    enableButtons1G()
-    winning()
-    newGameBtn.disabled = false
-}
-
-function conversionH() {
-    pointsH += 2
-    hScorer.textContent = pointsH
-    enableButtons1H()
-    disableButtons2H()
-    enableButtons1G()
-    winning()
-    newGameBtn.disabled = false
-}
-
-function penaltyG() {
-    pointsG += 3
-    gScorer.textContent = pointsG
-    winning()
-}
-
-function dropG() {
-    pointsG += 3
-    gScorer.textContent = pointsG
-    winning()
-}
-
-function tryG() {
-    pointsG += 5
-    gScorer.textContent = pointsG
-    disableButtons1G()
-    enableButtons2G()
-    disableAllH()
+function tryHome() {
+    pointsHome += 5
+    hScorer.textContent = pointsHome
+    disableButtons1Home()
+    enableButtons2Home()
+    disableAllAway()
     winning()
     newGameBtn.disabled = true
 }
 
-function missedG() {
-    enableButtons1G()
-    disableButtons2G()
-    enableButtons1H()
+function missedHome() {
+    enableButtons1Home()
+    disableButtons2Home()
+    enableButtons1Away()
     winning()
     newGameBtn.disabled = false
 }
 
-function conversionG() {
-    pointsG += 2
-    gScorer.textContent = pointsG
-    enableButtons1G()
-    disableButtons2G()
-    enableButtons1H()
+function conversionHome() {
+    pointsHome += 2
+    hScorer.textContent = pointsHome
+    enableButtons1Home()
+    disableButtons2Home()
+    enableButtons1Away()
+    winning()
+    newGameBtn.disabled = false
+}
+
+function penaltyAway() {
+    pointsAway += 3
+    gScorer.textContent = pointsAway
+    winning()
+}
+
+function dropAway() {
+    pointsAway += 3
+    gScorer.textContent = pointsAway
+    winning()
+}
+
+function tryAway() {
+    pointsAway += 5
+    gScorer.textContent = pointsAway
+    disableButtons1Away()
+    enableButtons2Away()
+    disableAllHome()
+    winning()
+    newGameBtn.disabled = true
+}
+
+function missedAway() {
+    enableButtons1Away()
+    disableButtons2Away()
+    enableButtons1Home()
+    winning()
+    newGameBtn.disabled = false
+}
+
+function conversionAway() {
+    pointsAway += 2
+    gScorer.textContent = pointsAway
+    enableButtons1Away()
+    disableButtons2Away()
+    enableButtons1Home()
     winning()
     newGameBtn.disabled = false
 }
